@@ -16,16 +16,7 @@ public class Save implements Serializable {
 
 	private static final long serialVersionUID = 4968544144969652972L;
 	
-	private int scrore;
 	private int highscore;
-
-	public int getScrore() {
-		return scrore;
-	}
-
-	public void setScrore(int scrore) {
-		this.scrore = scrore;
-	}
 
 	public int getHighscore() {
 		return highscore;
@@ -53,7 +44,7 @@ public class Save implements Serializable {
 		}
 	}
 	
-	public Save load() throws IOException, ClassNotFoundException {
+	public static Save load() throws IOException, ClassNotFoundException {
 		Save s = null;
 		FileHandle file = Gdx.files.local(MyConstants.saveFile);
 		s = (Save) deserialize(file.readBytes());

@@ -6,4 +6,6 @@ public class MyConstants {
 		SPLASH, TITLE, PLAY
 	}
 	
+	public static String saveFile = "llama.sav";
+	
 }

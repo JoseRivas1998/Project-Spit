@@ -34,13 +34,14 @@ public class GameStateManager {
 	
 	public void handleInput() {
 		if(MyInput.keyPressed(MyInput.FULLSCREEN)) {
-			if(Gdx.graphics.isFullscreen()) {
+			if(!Gdx.graphics.isFullscreen()) {
 				int width1 = java.awt.Toolkit.getDefaultToolkit().getScreenSize().width;
 				int height1 = java.awt.Toolkit.getDefaultToolkit().getScreenSize().height;
 				Gdx.graphics.setDisplayMode(width1, height1, true);
 			} else {
 				Gdx.graphics.setDisplayMode(800, 600, false);
 			}
+			Gdx.input.setCursorCatched(Gdx.graphics.isFullscreen());
 		}
 		gamestate.handleInput();
 	}

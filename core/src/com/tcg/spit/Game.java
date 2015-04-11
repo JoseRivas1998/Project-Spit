@@ -4,6 +4,7 @@ import javax.swing.JOptionPane;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.controllers.Controllers;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.math.Vector2;
 import com.tcg.spit.managers.*;
@@ -68,6 +69,10 @@ public class Game extends ApplicationAdapter {
 		gsm = new GameStateManager();
 		
 		Gdx.input.setInputProcessor(new MyInputProcessor());
+		Controllers.addListener(new MyControllerProcessor());
+		Gdx.input.setCatchBackKey(true);
+		Gdx.input.setCatchMenuKey(true);
+		Gdx.input.setCursorCatched(Gdx.graphics.isFullscreen());
 		
 		fpstime = 0;
 	}

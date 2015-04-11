@@ -23,11 +23,6 @@ public class SplashState extends GameState {
 	@Override
 	public void handleInput() {
 		// TODO Auto-generated method stub
-		for(int i = 0; i < MyConstants.NUM_TOUCHES; i++) {
-			if(MyInput.tapped(i)) {
-				System.out.println("Pointer: " + i + " Screen: " + MyInput.touchScreenPos(i).toString());
-			}
-		}
 	}
 
 	@Override

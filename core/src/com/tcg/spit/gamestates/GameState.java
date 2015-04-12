@@ -11,6 +11,7 @@ public abstract class GameState {
 	
 	public GameState(GameStateManager gsm) {
 		this.gsm = gsm;
+		init();
 	}
 
 	protected abstract void init();

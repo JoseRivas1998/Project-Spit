@@ -14,9 +14,18 @@ import com.tcg.spit.MyConstants;
 
 public class Save implements Serializable {
 
+	public Save() {}
+	
+	public Save(int highscore, int levels_unlocked) {
+		setHighscore(highscore);
+		setLevels_unlocked(levels_unlocked);
+	}
+	
 	private static final long serialVersionUID = 4968544144969652972L;
 	
 	private int highscore;
+	
+	private int levels_unlocked;
 
 	public int getHighscore() {
 		return highscore;
@@ -26,6 +35,14 @@ public class Save implements Serializable {
 		this.highscore = highscore;
 	}
 	
+	public int getLevels_unlocked() {
+		return levels_unlocked;
+	}
+
+	public void setLevels_unlocked(int levels_unlocked) {
+		this.levels_unlocked = levels_unlocked;
+	}
+
 	public void save(Save s) throws IOException {
 		FileHandle file = Gdx.files.local(MyConstants.saveFile);
 		OutputStream out = null;

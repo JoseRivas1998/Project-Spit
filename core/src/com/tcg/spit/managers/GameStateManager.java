@@ -25,10 +25,13 @@ public class GameStateManager {
 			gamestate = new SplashState(this);
 		}
 		if(state == States.TITLE) {
-			
+			gamestate = new TitleState(this);
 		}
 		if(state == States.PLAY) {
-			
+			gamestate = new PlayState(this);
+		}
+		if(state == States.LEVELSELECT) {
+			gamestate = new LevelSelectState(this);
 		}
 	}
 	

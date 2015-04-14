@@ -1,6 +1,5 @@
 package com.tcg.spit.gamestates;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -10,6 +9,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.tcg.spit.Game;
 import com.tcg.spit.MyCamera;
+import com.tcg.spit.MyConstants.States;
 import com.tcg.spit.managers.GameStateManager;
 import com.tcg.spit.managers.MyInput;
 
@@ -103,7 +103,7 @@ public class SplashState extends GameState {
 	}
 
 	private void toNextState() {
-		Gdx.app.exit();
+		gsm.setState(States.TITLE);
 	}
 
 	@Override

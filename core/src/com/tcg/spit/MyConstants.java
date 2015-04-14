@@ -9,7 +9,7 @@ import com.badlogic.gdx.math.Vector2;
 public class MyConstants {
 
 	public static enum States {
-		SPLASH, TITLE, PLAY
+		SPLASH, TITLE, PLAY, LEVELSELECT
 	}
 	
 	public static String saveFile = "llama.sav";
@@ -60,17 +60,17 @@ public class MyConstants {
 		return new Color(MathUtils.random(), MathUtils.random(), MathUtils.random(), 1);
 	}
 	
-	public static Color rgb(float r, float g, float b, float a) {
+	public static Color rgba(float r, float g, float b, float a) {
 		return new Color(r / 255f, g / 255f, b / 255f, a / 255f);
 	}
 
 	public static void drawTextBg(ShapeRenderer sr, float x, float y, float w, float h, MyCamera cam) {
 		sr.begin(ShapeType.Filled);
 		sr.setProjectionMatrix(cam.combined);
-		Color bL = MyConstants.rgb(45, 50, 107, 255);
-		Color bR = MyConstants.rgb(41, 42, 65, 255);
-		Color tR = MyConstants.rgb(45, 50, 107, 255);
-		Color tL = MyConstants.rgb(112, 118, 176, 255);
+		Color bL = MyConstants.rgba(45, 50, 107, 255);
+		Color bR = MyConstants.rgba(41, 42, 65, 255);
+		Color tR = MyConstants.rgba(45, 50, 107, 255);
+		Color tL = MyConstants.rgba(112, 118, 176, 255);
 		sr.rect(x, y, w, h, bL, bR, tR, tL);
 		sr.end();
 		sr.begin(ShapeType.Line);
@@ -78,6 +78,28 @@ public class MyConstants {
 		sr.setColor(Color.WHITE);
 		sr.rect(x, y, w, h);
 		sr.end();
+	}
+	
+	public static float clamp(float n, float min, float max) {
+		float r = n;
+		if(r < min) {
+			r = min;
+		}
+		if(r > max) {
+			r = max;
+		}
+		return r;
+	}
+	
+	public static int clamp(int n, int min, int max) {
+		int r = n;
+		if(r < min) {
+			r = min;
+		}
+		if(r > max) {
+			r = max;
+		}
+		return r;
 	}
 	
 }

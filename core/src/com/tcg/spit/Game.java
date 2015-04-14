@@ -29,6 +29,10 @@ public class Game extends ApplicationAdapter {
 	private GameStateManager gsm;
 
 	public static Content res;
+	
+	public static int LEVEL, LEVELS_UNLOCKED;
+	
+	public final Save defaultS = new Save(0, 1);
 
 	@Override
 	public void create() {
@@ -53,7 +57,7 @@ public class Game extends ApplicationAdapter {
 			}
 			JOptionPane.showMessageDialog(null, "Could not load \""
 					+ MyConstants.saveFile
-					+ "\", a new one will be created on exit", Game.TITLE,
+					+ "\", a new one will be created", Game.TITLE,
 					JOptionPane.INFORMATION_MESSAGE);
 			if (f) {
 				int width1 = java.awt.Toolkit.getDefaultToolkit()
@@ -62,8 +66,7 @@ public class Game extends ApplicationAdapter {
 						.getScreenSize().height;
 				Gdx.graphics.setDisplayMode(width1, height1, true);
 			}
-			s = new Save();
-			s.setHighscore(0);
+			s = defaultS;
 			try {
 				s.save(s);
 			} catch (Exception e) {
@@ -72,6 +75,7 @@ public class Game extends ApplicationAdapter {
 		}
 
 		Game.HIGHSCORE = s.getHighscore();
+		Game.LEVELS_UNLOCKED = s.getLevels_unlocked();
 		Game.SCORE = 0;
 
 		res = new Content();
@@ -143,6 +147,7 @@ public class Game extends ApplicationAdapter {
 		gsm.dispose();
 		res.removeAll();
 		s.setHighscore(Game.HIGHSCORE);
+		s.setLevels_unlocked(Game.LEVELS_UNLOCKED);
 		try {
 			s.save(s);
 		} catch (Exception e) {

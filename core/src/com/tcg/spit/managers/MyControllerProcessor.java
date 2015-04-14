@@ -10,7 +10,7 @@ public class MyControllerProcessor extends ControllerAdapter {
 	@Override
 	public boolean buttonDown(Controller controller, int buttonIndex) {
 		if(buttonIndex == MyConstants.A) {
-			MyInput.setKey(MyInput.UP, true);
+			MyInput.setKey(MyInput.JUMP, true);
 		}
 		if(buttonIndex == MyConstants.START) {
 			MyInput.setKey(MyInput.START, true);

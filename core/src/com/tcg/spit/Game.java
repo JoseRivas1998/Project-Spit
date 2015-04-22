@@ -1,6 +1,5 @@
 package com.tcg.spit;
 
-import javax.swing.JOptionPane;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
@@ -51,21 +50,6 @@ public class Game extends ApplicationAdapter {
 				e.printStackTrace();
 			}
 		} else {
-			boolean f = Gdx.graphics.isFullscreen();
-			if (f) {
-				Gdx.graphics.setDisplayMode(800, 600, false);
-			}
-			JOptionPane.showMessageDialog(null, "Could not load \""
-					+ MyConstants.saveFile
-					+ "\", a new one will be created", Game.TITLE,
-					JOptionPane.INFORMATION_MESSAGE);
-			if (f) {
-				int width1 = java.awt.Toolkit.getDefaultToolkit()
-						.getScreenSize().width;
-				int height1 = java.awt.Toolkit.getDefaultToolkit()
-						.getScreenSize().height;
-				Gdx.graphics.setDisplayMode(width1, height1, true);
-			}
 			s = defaultS;
 			try {
 				s.save(s);
